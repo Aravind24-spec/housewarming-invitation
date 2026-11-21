@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>புதுமனைப் புகுவிழா அழைப்பிதழ் | Housewarming Invitation</title>
+  <meta property="og:title" content="புதுமனைப் புகுவிழா அழைப்பிதழ் | M. Ramesh & R. Gomathi" />
+  <meta property="og:description" content="Sunday, 14 Feb 2027 • South Malayambakkam, Kundrathur, Chennai. Tap to open!" />
+  <link href="https://googleapis.com" rel="stylesheet">
+  <style>
+    :root { --bg: #23100b; --card: #fdf6e7; --maroon: #6a1b1a; --gold: #d4af37; --gold-dk: #aa8220; --gold-lt: #e5c16c; --green: #245934; --wood1: #542814; --wood2: #3b1c0e; --ink: #3b2314; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: radial-gradient(circle at top, #4a2318, #1a0b07); font-family: 'Poppins', 'Noto Sans Tamil', sans-serif; color: var(--ink); min-height: 100dvh; display: flex; justify-content: center; align-items: center; padding: 16px 12px; overflow-x: hidden; }
+    body.locked { overflow: hidden; height: 100dvh; }
+    .door-overlay { position: fixed; inset: 0; z-index: 999; display: flex; justify-content: center; align-items: center; background: rgba(18, 7, 4, 0.94); cursor: pointer; transition: visibility 0s linear 1.3s, opacity 0.6s ease 0.8s; }
+    .door-overlay.opened { opacity: 0; visibility: hidden; pointer-events: none; }
+    .door-stage { width: 100%; height: 100%; display: flex; position: relative; perspective: 1600px; overflow: hidden; }
+    @media (min-width: 768px) { .door-stage { max-width: 520px; height: 88vh; max-height: 760px; border-radius: 18px; box-shadow: 0 25px 70px #000, 0 0 0 3px var(--gold); } }
+    .door-panel { width: 50%; height: 100%; background: linear-gradient(135deg, var(--wood1), var(--wood2)); border-top: 6px solid var(--gold); border-bottom: 6px solid var(--gold); position: relative; transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: inset 0 0 60px rgba(0,0,0,0.75); display: flex; align-items: center; }
+    .door-left { transform-origin: left center; border-left: 6px solid var(--gold); border-right: 2px solid var(--gold-dk); justify-content: flex-end; }
+    .door-right { transform-origin: right center; border-right: 6px solid var(--gold); border-left: 2px solid var(--gold-dk); justify-content: flex-start; }
+    .door-panel::before { content: ""; position: absolute; inset: 20px 16px; border: 2px solid rgba(212, 175, 55, 0.45); border-radius: 6px; }
+    .door-overlay.opened .door-left { transform: rotateY(-108deg); }
+    .door-overlay.opened .door-right { transform: rotateY(108deg); }
+    .brass-handle { width: 14px; height: 92px; background: linear-gradient(180deg, #f3d479, #b58922, #f3d479); border-radius: 8px; margin: 0 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.6); z-index: 2; }
+    .door-front { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; padding: 36px 20px 44px; z-index: 10; transition: opacity 0.4s ease; }
+    .door-overlay.opened .door-front { opacity: 0; }
+    .door-badge { background: rgba(28, 12, 7, 0.9); border: 1.5px solid var(--gold); padding: 22px 24px; border-radius: 16px; box-shadow: 0 12px 35px rgba(0,0,0,0.75); max-width: 370px; width: 100%; }
+    .door-om { font-family: 'Tiro Tamil', serif; color: var(--gold); font-size: 1.25rem; margin-bottom: 6px; }
+    .door-ta { font-family: 'Tiro Tamil', serif; color: #fff8eb; font-size: 1.5rem; margin-bottom: 6px; }
+    .door-en { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.05rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 14px; }
+    .door-date { display: inline-block; background: var(--maroon); color: #fff; border: 1px solid var(--gold); padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
+    .open-btn { background: linear-gradient(135deg, #f3d479, #c6922c); color: #2b140e; border: 2px solid #fff5d6; padding: 14px 30px; border-radius: 50px; font-size: 0.95rem; font-weight: 700; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.75); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+    .invite-card { width: 100%; max-width: 460px; background: var(--card); border: 3px solid var(--gold); border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.65); overflow: hidden; margin: auto; }
+    .inner-border { margin: 8px; border: 1.5px solid var(--gold-lt); border-radius: 12px; padding-bottom: 16px; }
+    .top-garland { width: 100%; max-height: 85px; display: block; }
+    .content { padding: 6px 20px 12px; text-align: center; }
+    @media (min-width: 820px) {
+      body { padding: 32px 24px; }
+      .invite-card { max-width: 880px; }
+      .inner-border { margin: 12px; padding-bottom: 20px; }
+      .content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; padding: 12px 36px 20px; }
+      .col-left { border-right: 1px dashed var(--gold); padding-right: 28px; }
+    }
+    .om { font-family: 'Tiro Tamil', serif; font-size: 1.5rem; color: var(--maroon); font-weight: bold; }
+    .blessing { font-size: 0.8rem; font-weight: 600; color: var(--green); margin-bottom: 14px; }
+    .title-ta { font-family: 'Tiro Tamil', serif; font-size: 1.55rem; color: var(--maroon); margin-bottom: 4px; }
+    .title-en { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold-dk); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+    .divider { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 10px 0 16px; }
+    .divider span { height: 1px; width: 65px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .line-ta { font-size: 0.86rem; line-height: 1.65; margin-bottom: 12px; }
+    .parents { margin: 14px 0; }
+    .parents-en { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700; color: var(--maroon); }
+    .parents-ta { font-size: 0.92rem; font-weight: 600; color: var(--green); margin-top: 2px; }
+    .line-en { font-size: 0.84rem; line-height: 1.6; color: #5a3e2b; margin-bottom: 18px; }
+    .arch-box { background: linear-gradient(180deg, #fffdf8, #f9edd2); border: 1.5px solid var(--gold); border-radius: 90px 90px 14px 14px; padding: 26px 16px 20px; margin: 6px 4px 18px; }
+    .item { margin-bottom: 14px; }
+    .item:last-child { margin-bottom: 0; }
+    .lbl { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 1px; color: var(--green); font-weight: 700; margin-bottom: 2px; }
+    .val-main { font-size: 1rem; font-weight: 700; color: var(--maroon); }
+    .val-sub { font-size: 0.82rem; }
+    .venue-box { background: rgba(255,255,255,0.75); border-top: 1px dashed var(--gold); border-bottom: 1px dashed var(--gold); padding: 14px 12px; margin-bottom: 16px; border-radius: 8px; }
+    .venue-ta { font-size: 0.84rem; font-weight: 600; line-height: 1.55; margin-bottom: 6px; }
+    .venue-en { font-size: 0.82rem; color: #5a3e2b; line-height: 1.45; }
+    .btns { display: flex; gap: 10px; justify-content: center; margin: 14px 0 16px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px 18px; min-height: 44px; border-radius: 50px; font-size: 0.84rem; font-weight: 600; text-decoration: none; color: #fff; }
+    .btn-map { background: var(--maroon); }
+    .btn-call { background: var(--green); }
+    .regards { font-size: 0.76rem; color: #6c5340; margin-bottom: 4px; }
+    .kids-en { font-size: 0.95rem; font-weight: 700; color: var(--maroon); }
+    .kids-ta { font-size: 0.84rem; color: var(--green); font-weight: 600; margin-bottom: 6px; }
+    .footer-lamps { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 20px; margin-top: 6px; }
+    .kolam { height: 14px; background-image: radial-gradient(circle, var(--maroon) 2.5px, transparent 3px), radial-gradient(circle, var(--gold) 2px, transparent 2.5px); background-size: 24px 14px; background-position: 0 0, 12px 7px; margin-top: 6px; opacity: 0.85; }
+  </style>
+</head>
+<body class="locked">
+  <div class="door-overlay" id="doorOverlay" onclick="openDoor()">
+    <div class="door-stage">
+      <div class="door-panel door-left"><div class="brass-handle"></div></div>
+      <div class="door-panel door-right"><div class="brass-handle"></div></div>
+      <div class="door-front">
+        <div class="door-badge">
+          <div class="door-om">உ • ஸ்ரீ கணபதி துணை</div>
+          <div class="door-ta">புதுமனைப் புகுவிழா</div>
+          <div class="door-en">Housewarming Ceremony</div>
+          <div class="door-date">📅 Sunday, 14th February 2027</div>
+        </div>
+        <button type="button" class="open-btn">🚪 Tap to Open Invitation<br><span style="font-size:0.8rem;">அழைப்பிதழைத் திறக்கவும்</span></button>
+      </div>
+    </div>
+  </div>
+
+  <main class="invite-card">
+    <div class="inner-border">
+      <svg class="top-garland" viewBox="0 0 880 75" preserveAspectRatio="none" fill="none">
+        <line x1="90" y1="15" x2="90" y2="48" stroke="#C6922C" stroke-width="2.5"/>
+        <path d="M78 48 C78 36, 102 36, 102 48 L107 58 L73 58 Z" fill="#D4AF37"/>
+        <line x1="790" y1="15" x2="790" y2="48" stroke="#C6922C" stroke-width="2.5"/>
+        <path d="M778 48 C778 36, 802 36, 802 48 L807 58 L773 58 Z" fill="#D4AF37"/>
+        <path d="M0 10 Q440 42 880 10" stroke="#245934" stroke-width="4"/>
+        <circle cx="30" cy="12" r="9" fill="#F39C12"/><circle cx="140" cy="20" r="10" fill="#E67E22"/>
+        <circle cx="250" cy="25" r="10" fill="#F39C12"/><circle cx="360" cy="28" r="11" fill="#E67E22"/>
+        <circle cx="440" cy="29" r="12" fill="#F39C12"/><circle cx="520" cy="28" r="11" fill="#E67E22"/>
